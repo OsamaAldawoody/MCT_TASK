@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:mct_task/_shared_widgets/app_drop_down.dart';
-import 'package:mct_task/_shared_widgets/key_value.dart';
-import 'package:mct_task/models/payment.dart';
+import 'package:mct_task/app/_shared_widgets/app_drop_down.dart';
+import 'package:mct_task/app/_shared_widgets/key_value.dart';
+import 'package:mct_task/app/models/payment.dart';
+import 'package:mct_task/app/view_model/hala_payment_viewmodel.dart';
 import 'package:mct_task/utils/some_consts.dart';
-import 'package:mct_task/view_model/hala_payment_viewmodel.dart';
 import 'package:provider/provider.dart';
 
 class HalaPaymentView extends StatelessWidget {

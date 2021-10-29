@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mct_task/services/web_api/_web_api.dart';
 import 'package:mct_task/utils/routes.dart';
-import 'package:mct_task/utils/service_locator.dart';
+import 'package:mct_task/services/service_locator.dart';
 import 'package:mct_task/utils/some_consts.dart';
-import 'package:mct_task/web_api/_web_api.dart';
 
 class RegisterViewModel {
   UserWebApi _api = serviceLocator<UserWebApi>();
@@ -28,8 +28,8 @@ class RegisterViewModel {
             response.data['responseCode'] == 1) {
           Navigator.pushReplacementNamed(context, Routes.loginRoute);
         } else {
-          SomeConsts.popUps
-              .showSnackBar('problem: it may be invalid email or password!');
+          SomeConsts.popUps.showSnackBar(
+              'problem: it may be invalid email or password Or email used before!');
         }
       } else {
         SomeConsts.popUps.showSnackBar('you should select a role');

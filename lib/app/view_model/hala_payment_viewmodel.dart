@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
-import 'package:mct_task/models/payment.dart';
-import 'package:mct_task/utils/service_locator.dart';
-import 'package:mct_task/web_api/_web_api.dart';
+import 'package:mct_task/app/models/payment.dart';
+import 'package:mct_task/services/service_locator.dart';
+import 'package:mct_task/services/web_api/_web_api.dart';
 
 class HalaPaymentViewModel with ChangeNotifier {
   PaymentWebApi _api = serviceLocator<PaymentWebApi>();

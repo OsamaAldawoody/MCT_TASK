@@ -1,8 +1,9 @@
 import 'package:dio/dio.dart';
-import 'package:mct_task/storage/_local_storage.dart';
-import 'package:mct_task/utils/service_locator.dart';
+import 'package:mct_task/services/service_locator.dart';
+import 'package:mct_task/services/storage/_local_storage.dart';
 import 'package:mct_task/utils/some_consts.dart';
-import 'package:mct_task/web_api/_web_api.dart';
+
+import '_web_api.dart';
 
 class PaymentApiImpl implements PaymentWebApi {
   final _paymentRoute = '/Payment/GetPayment';

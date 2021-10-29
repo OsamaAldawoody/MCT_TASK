@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:mct_task/storage/_local_storage.dart';
+import 'package:mct_task/services/storage/_local_storage.dart';
+import 'package:mct_task/services/web_api/_web_api.dart';
 import 'package:mct_task/utils/routes.dart';
-import 'package:mct_task/utils/service_locator.dart';
+import 'package:mct_task/services/service_locator.dart';
 import 'package:mct_task/utils/some_consts.dart';
-import 'package:mct_task/web_api/_web_api.dart';
 
 class LoginViewModel {
   TextEditingController emailController = TextEditingController();

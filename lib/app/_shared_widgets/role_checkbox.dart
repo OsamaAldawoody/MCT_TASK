@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mct_task/view_model/register_view_model.dart';
+import 'package:mct_task/app/view_model/register_view_model.dart';
 import 'package:provider/src/provider.dart';
 
 class RoleCheckBox extends StatefulWidget {

@@ -1,5 +1,6 @@
-import 'package:mct_task/storage/_local_storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '_local_storage.dart';
 
 class LocaleStorageImpl implements LocalStorage {
   static const tokenKey = 'token';

@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
-import 'package:mct_task/view/hala_payment_view.dart';
-import 'package:mct_task/view/login_view.dart';
-import 'package:mct_task/view/resgister_view.dart';
+import 'package:mct_task/app/view/hala_payment_view.dart';
+import 'package:mct_task/app/view/login_view.dart';
+import 'package:mct_task/app/view/resgister_view.dart';
 
 class Routes {
   static const String initailRoute = '/';

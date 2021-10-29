@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mct_task/utils/service_locator.dart';
+import 'package:mct_task/services/service_locator.dart';
 import 'package:mct_task/utils/some_consts.dart';
-import 'package:mct_task/view/login_view.dart';
 import 'package:mct_task/utils/routes.dart';
 
 void main() {

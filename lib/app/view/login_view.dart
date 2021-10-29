@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:mct_task/app/view_model/login_view_model.dart';
 import 'package:mct_task/utils/routes.dart';
 import 'package:mct_task/utils/some_consts.dart';
 import 'package:mct_task/validation/name_validator.dart';
-import 'package:mct_task/view_model/login_view_model.dart';
 import 'package:provider/provider.dart';
 
 import '../_shared_widgets/app_button.dart';

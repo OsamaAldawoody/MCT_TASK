@@ -3,7 +3,8 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:dio/src/response.dart';
 import 'package:mct_task/utils/some_consts.dart';
-import 'package:mct_task/web_api/_web_api.dart';
+
+import '_web_api.dart';
 
 class UserApiImpl implements UserWebApi {
   final _registerRoute = '/User/RegisterUser';

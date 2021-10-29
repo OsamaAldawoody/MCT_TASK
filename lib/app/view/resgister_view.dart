@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:mct_task/_shared_widgets/app_button.dart';
-import 'package:mct_task/_shared_widgets/role_checkbox.dart';
+import 'package:mct_task/app/_shared_widgets/app_button.dart';
+import 'package:mct_task/app/_shared_widgets/role_checkbox.dart';
+
+import 'package:mct_task/app/view_model/register_view_model.dart';
 import 'package:mct_task/utils/routes.dart';
 import 'package:mct_task/utils/some_consts.dart';
 import 'package:mct_task/validation/email_validator.dart';
 import 'package:mct_task/validation/name_validator.dart';
 import 'package:mct_task/validation/password_validator.dart';
-import 'package:mct_task/view_model/register_view_model.dart';
+
 import 'package:provider/provider.dart';
 
 import '../_shared_widgets/app_text_form_field.dart';
