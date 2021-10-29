@@ -45,11 +45,13 @@ class RegisterView extends StatelessWidget {
                       hintText: 'mail@example.com',
                       validator: (val) => EmailValidator(val!).validate(),
                       controller: provider.emailController,
+                      inputType: TextInputType.emailAddress,
                     ),
                     AppTextFormField(
                       hintText: '******',
                       validator: (val) => PasswordValidator(val!).validate(),
                       controller: provider.passwordController,
+                      isSecure: true,
                     ),
                     FutureBuilder<List>(
                       future: provider.getRoles(),

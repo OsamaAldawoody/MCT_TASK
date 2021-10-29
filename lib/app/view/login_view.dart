@@ -35,11 +35,13 @@ class LoginView extends StatelessWidget {
                         hintText: 'mail@example.com',
                         controller: provider.emailController,
                         validator: (val) => FieldValidator(val!).validate(),
+                        inputType: TextInputType.emailAddress,
                       ),
                       AppTextFormField(
                         hintText: '******',
                         controller: provider.passwordController,
                         validator: (val) => FieldValidator(val!).validate(),
+                        isSecure: true,
                       ),
                       AppButton(
                         'دخول',
