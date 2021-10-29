@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:mct_task/app/_shared_widgets/app_drop_down.dart';
+import 'package:mct_task/app/_shared_widgets/dialog_filter.dart';
 import 'package:mct_task/app/_shared_widgets/key_value.dart';
+import 'package:mct_task/app/_shared_widgets/payment_card.dart';
+import 'package:mct_task/app/_shared_widgets/total_payment.dart';
 import 'package:mct_task/app/models/payment.dart';
 import 'package:mct_task/app/view_model/hala_payment_viewmodel.dart';
 import 'package:mct_task/utils/some_consts.dart';
@@ -54,96 +57,12 @@ class HalaPaymentView extends StatelessWidget {
                         onPressed: () => showDialog(
                           context: context,
                           builder: (context) => AlertDialog(
-                            content: Column(
-                              textDirection: TextDirection.rtl,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Text(
-                                  'من تاريخ',
-                                  style: TextStyle(
-                                    color: SomeConsts.colors.mainColor,
-                                    fontSize: 20,
-                                  ),
-                                ),
-                                Row(
-                                  textDirection: TextDirection.rtl,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceAround,
-                                  children: [
-                                    AppDropDownButton(items: provider.days),
-                                    AppDropDownButton(items: provider.months),
-                                    AppDropDownButton(items: provider.years)
-                                  ],
-                                ),
-                                Text(
-                                  'إلى تاريخ',
-                                  style: TextStyle(
-                                    color: SomeConsts.colors.mainColor,
-                                    fontSize: 20,
-                                  ),
-                                ),
-                                Row(
-                                  textDirection: TextDirection.rtl,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceAround,
-                                  children: [
-                                    AppDropDownButton(items: provider.days),
-                                    AppDropDownButton(items: provider.months),
-                                    AppDropDownButton(items: provider.years)
-                                  ],
-                                ),
-                                Container(
-                                  width: SomeConsts.width,
-                                  alignment: Alignment.bottomCenter,
-                                  child: TextButton(
-                                    onPressed: () => null,
-                                    child: Text(
-                                      'بحث',
-                                      style: TextStyle(
-                                        color: Colors.red[500],
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
+                            content: DialogFilter(provider: provider),
                           ),
                         ),
                       ),
                     ),
-                    Expanded(
-                      child: Card(
-                        color: Colors.amber,
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            textDirection: TextDirection.rtl,
-                            children: [
-                              Text(
-                                'إجمالي المدفوعات',
-                                style: TextStyle(
-                                    color: SomeConsts.colors.greenColor),
-                              ),
-                              Selector<HalaPaymentViewModel, double>(
-                                selector: (_, provider) => provider.total,
-                                builder: (context, total, child) => Text(
-                                  total.toStringAsFixed(2),
-                                  style: TextStyle(
-                                      color: SomeConsts.colors.greenColor),
-                                ),
-                              ),
-                              Text(
-                                'ريال سعودي',
-                                style: TextStyle(
-                                    color: SomeConsts.colors.greenColor),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                    )
+                    TotalPayment()
                   ],
                 ),
                 Expanded(
@@ -156,65 +75,7 @@ class HalaPaymentView extends StatelessWidget {
                           itemBuilder: (context, index) {
                             final paymentItem =
                                 snapshot.data![index] as Payment;
-                            return Card(
-                              margin: const EdgeInsets.all(8.0),
-                              child: ExpansionTile(
-                                trailing: null,
-                                leading: null,
-                                title: Row(
-                                  textDirection: TextDirection.rtl,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceAround,
-                                  children: [
-                                    Column(
-                                      textDirection: TextDirection.rtl,
-                                      children: [
-                                        Text(
-                                          paymentItem.fullNameAR ??
-                                              paymentItem.fullNameEN,
-                                          style: TextStyle(
-                                            color: SomeConsts.colors.mainColor,
-                                          ),
-                                        ),
-                                        Text(
-                                          paymentItem.mobileNumber,
-                                          style: TextStyle(
-                                            color:
-                                                SomeConsts.colors.darkGreyColor,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    Column(
-                                      textDirection: TextDirection.rtl,
-                                      children: [
-                                        Text(
-                                          paymentItem.amount.toString(),
-                                          style: TextStyle(
-                                              color: Colors.red[400],
-                                              fontWeight: FontWeight.w800,
-                                              fontSize: 20),
-                                        ),
-                                        Text(
-                                          'ريال سعودي',
-                                          style: TextStyle(
-                                              color: SomeConsts
-                                                  .colors.lightGreyColor),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                                children: [
-                                  KeyValueWidget(
-                                      ':رقم التحويل', paymentItem.trxRef),
-                                  KeyValueWidget(
-                                      ':تاريخ التحويل', paymentItem.trxDate),
-                                  KeyValueWidget(':اسم المنشأة',
-                                      paymentItem.corporateFullNameAR),
-                                ],
-                              ),
-                            );
+                            return PaymentCard(paymentItem: paymentItem);
                           },
                         );
                       } else if (snapshot.hasError) {
